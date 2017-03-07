@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js" ></script>
+
+    <script src="~/app/app.js"></script>
+    <script src="~/app/PlayerController.js"></script>
+    <script src="~/app/AppController.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/content/main.css" rel="stylesheet" />
+    <title>Make Love</title>
+</head>
+<body ng-app="makelove">
+    <div ng-controller="_AppController" class="max-height" >
+        <div class="main" ng-show="model.showStart">
+            <h1>Abenteuer von Eichhörnchen und Streifenhörnchen</h1>
+
+            <div class="image-container">
+                <img src="~/content/img/Eichhörnchen_game.png" />
+                <img src="~/content/img/Streifenhörnchen_game.png" />
+            </div>
+            <div class="start-button">
+                <button class="btn btn-default btn-lg max-width" ng-click="start()">Start</button>
+            </div>
+        </div>
+        <div class="main" ng-show="!model.showStart">
+            <canvas id="playground" ></canvas>
+            <div class="menu">
+                <h3>{{model.credit}}</h3>
+                <button class="btn btn-default" ng-click="buyCar()">Cabrio kaufen</button>
+            </div>
+            <div class="kiss-menu" ng-show="model.showKissMenu">         
+                <button class="btn btn-primary" ng-click="kissForNuts()">Küsse gegen Nüsse</button>
+            </div>
+        </div>
+    </div>
+
+    @* canvas content *@
+    <div style="display: none">
+        <img id="squirrel" src="~/content/img/Eichhörnchen_game.png" />
+        <img id="squirrel_car" src="~/content/img/Eichhörnchen_auto.png" />
+        <img id="chipmunk" src="~/content/img/Streifenhörnchen_game.png" />
+        <img id="chipmunk_love" src="~/content/img/Streifenhörnchen_love.png" />
+        <img id="squirrel_car_kids" src="~/content/img/Eichhörnchen_auto_kids.png" />
+        <img id="nut" src="~/content/img/Nuss.png" />
+    </div>
+</body>
+</html>
